@@ -17,7 +17,13 @@ class Iris:
         self.petal_length = float(str[2])
         self.petal_width = float(str[3])
     def get_dist(self,b):
-        return (math.sqrt((self.sepal_length - b.sepal_length) ** 2 + (self.sepal_width - b.sepal_width)** 2+ (self.petal_length - b.petal_length)** 2+ (self.petal_width - b.petal_width)** 2))
+        return (math.sqrt(((self.sepal_length - b.sepal_length) ** 2) + ((self.sepal_width - b.sepal_width)** 2) + ((self.petal_length - b.petal_length)** 2)+ ((self.petal_width - b.petal_width)** 2)))
+
+    def normilise(self, min_arg=[], max_arg=[]):
+        self.petal_length = (self.petal_length - min_arg[0]) / (max_arg[0] - min_arg[0])
+        self.petal_width = (self.petal_width - min_arg[1]) / (max_arg[1] - min_arg[1])
+        self.sepal_length = (self.sepal_length - min_arg[2]) / (max_arg[2] - min_arg[2])
+        self.sepal_width = (self.sepal_width - min_arg[3]) / (max_arg[3] - min_arg[3])
 
 class Check:
     type=""
